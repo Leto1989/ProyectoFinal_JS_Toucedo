@@ -3,12 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script  defer src="script/index.js"></script>
     <title> Inicio </title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#"> Inicio</a></li>
+                <li><a href="pages/biblioteca.html"> Biblioteca</a></li>
+                <li><a href="#"> Mi lista</a></li>
+                <li><a href="pages/contacto.html"> Contacto </a></li>
+            </ul>
+        </nav>
+    </header>
+    <!--Formulario Ingreso-->
     <div class="centrado">
-        <form id="formularioIngreso" class="centrado">
+        <form id="formularioIngreso" class="centrado form-ingreso">
            
                 <label for="nombreUsuario"> Nombre de usuario: </label>
                 <input type="text" id="nombreUsuario" name="nombreUsuario" required>
@@ -17,7 +29,23 @@
                 <input type="text" id="contrasena" name="contrasena" required>
             
             <button type="submit" id="btnIngresar" class="btnIngresar"> Ingresar </button>
-            <p class="pForm"> ¿Usuario nuevo? <a href=""> Crear usuario </a></p>
+            <p class="pForm"> ¿Usuario nuevo? <a href="#" id="mostrarFormulario"> Crear usuario </a></p>
+        </form>
+    
+        <!--Formulario de registro-->
+        <form id="formularioRegistro" class="centrado form-registro" style="display: none;" >
+            
+            <label for="nuevoUsuario"> Nuevo Usuario:</label>
+            <input type="text" name="nuevoUsuario" id="nuevoUsuario"required>
+
+            <label for="nuevoEmail"> Correo electrónico: </label>
+            <input type="email" id="nuevoEmail" name="nuevoEmail" required>
+
+            <label for="nuevaContrasena"> Establecer contraseña:</label>
+            <input type="password" id="nuevaContrasena" name="nuevaContrasena">
+
+            <button type="submit" id="btnRegistrar" class="btnRegistrar"> Registrar</button>
+            <p class="pForm">¿Ya tienes cuenta? <a href="#" id="mostrarIngreso">Iniciar sesión</a></p>
         </form>
     </div>
 </body>
