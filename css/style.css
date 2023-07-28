@@ -37,6 +37,10 @@ ul li a {
   font-family: "Lora", sans-serif;
 }
 
+.hide {
+  display: none;
+}
+
 .centrado {
   display: flex;
   flex-direction: column;
@@ -59,7 +63,7 @@ label {
   font-size: 25px;
   font-weight: bold;
   font-family: "Jost", sans-serif;
-  color: #f0810f;
+  color: #f4cc70;
 }
 
 input {
@@ -108,7 +112,7 @@ label {
   font-size: 25px;
   font-weight: bold;
   font-family: "Jost", sans-serif;
-  color: #f0810f;
+  color: #f4cc70;
 }
 
 input {
@@ -154,8 +158,9 @@ input {
 }
 
 .card-disco {
-  width: 200px;
+  width: 300px;
   border: 2px solid #ccc;
+  background-color: #f4cc70;
   border-radius: 5px;
   padding: 10px;
   margin: 10px;
