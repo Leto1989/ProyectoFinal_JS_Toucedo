@@ -112,7 +112,7 @@ const discos = [
 
 const contenedorDiscos = document.getElementById("contenedorDiscos");
 const detalleDisco = document.getElementById("detalleDisco");
-const btnVolver = document.getElementById ('btnVolver')
+
 
 function crearCardDisco(disco) {
   return `
@@ -138,7 +138,7 @@ function mostrarDetallesDisco(disco) {
         <p>Género: ${disco.genero}</p>
         <p>Sobre el disco: ${disco.comentario}</p>
         <a href="${disco.enlace}" target="_blank" rel="noopener noreferrer">Escuchar disco</a>
-        <button class="btnVolver" id="btnVolver"> Volver a la lista </button>
+        <button class="btn-volver" id="btnVolver"> Volver a la lista </button>
       </div>
     `;
     detalleDisco.innerHTML = detalleHTML;
@@ -164,11 +164,12 @@ function mostrarDiscosEnCards() {
       e.stopPropagation();
       const disco = discos[index];
       mostrarDetallesDisco(disco);
+
+      const btnVolver = document.getElementById ('btnVolver');
+      btnVolver.addEventListener ('click', () => {
+        mostrarDetallesDisco (null);
+      })
     });
-  });
-  
-  btnVolver.addEventListener('click', () => {
-    mostrarDetallesDisco(null);
   });
 }
 
