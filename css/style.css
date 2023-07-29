@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost&family=Reem+Kufi:wght@500&family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Jost&family=Reem+Kufi:wght@500&family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Alice&family=Jost&family=Lora&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alice&family=Jost&family=Lora&family=Roboto&display=swap");
 body {
   background-color: #063852;
 }
@@ -219,11 +220,29 @@ input {
 
 .detalle-card h2 {
   margin: 10px 0;
-  color: #063852;
+  color: #f4cc70;
+  font-size: 35px;
+  font-family: "Lora", sans-serif;
 }
 
 .detalle-card p {
   margin: 5px 0;
+  font-size: 20px;
+  color: #e6df44;
+  font-family: "Jost", sans-serif;
+}
+
+.detalle-card a {
+  color: #1995ad;
+  font-size: 20px;
+  border-color: black;
+  padding: 10px;
+  margin: 5px;
+  font-family: "Lora", sans-serif;
+}
+.detalle-card a:hover {
+  background-color: #f4cc70;
+  transition: 2s;
 }
 
 .ver-detalles-btn {
@@ -236,7 +255,14 @@ input {
   font-size: 15px;
   border-radius: 10px;
   cursor: pointer;
-  font-family: "Alice", sans-serif;
+}
+
+.btn-volver {
+  background-color: #f4cc70;
+  color: black;
+  width: 120px;
+  height: 40px;
+  font-size: 15px;
 }
 
 /*# sourceMappingURL=style.css.map */

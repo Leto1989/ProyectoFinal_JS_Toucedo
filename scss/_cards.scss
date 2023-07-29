@@ -54,22 +54,28 @@
 
 .detalle-card h2 {
     margin: 10px 0;
-    color: $color2;
+    color: $color3;
+    font-size: 35px;
+    font-family: 'Lora', sans-serif;
+
 }
 
 .detalle-card p {
     margin: 5px 0;
+    font-size: 20px;
+    color: $color4;
+    font-family: 'Jost', sans-serif;
+}
+.detalle-card a {
+            color: $color5;
+            font-size: 20px;
+            border-color: black;
+            padding: 10px;
+            margin: 5px;
+            font-family: 'Lora', sans-serif;
+            &:hover {
+                background-color: $color3;
+                transition: 2s;
+            }
 }
 
-.ver-detalles-btn {
-    background-color: $color2;
-    color: white;
-    width: 120px;
-    height: 40px;
-    border: none;
-    margin-bottom: 10px ;
-    font-size: 15px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-family: 'Alice', sans-serif;
-}
