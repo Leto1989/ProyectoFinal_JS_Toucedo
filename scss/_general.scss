@@ -3,6 +3,16 @@ body {
     background-color: $color2;
 }
 
+.body {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto 1 fr;
+
+}
+header {
+    grid-column: 1/ span 1;
+}
+
 nav {
     width: 200px;
 }
@@ -35,6 +45,11 @@ ul {
             font-family: 'Lora', sans-serif;
         }
     }
+}
+
+main {
+    grid-column: 2 /span 5;
+    
 }
 
 .hide {

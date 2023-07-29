@@ -1,8 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost&family=Lora&family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Jost&family=Reem+Kufi:wght@500&family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Jost&family=Reem+Kufi:wght@500&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alice&family=Jost&family=Lora&family=Roboto&display=swap");
 body {
   background-color: #063852;
+}
+
+.body {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: auto 1 fr;
+}
+
+header {
+  grid-column: 1/span 1;
 }
 
 nav {
@@ -35,6 +46,10 @@ ul li a {
   align-items: center;
   padding-top: 10px;
   font-family: "Lora", sans-serif;
+}
+
+main {
+  grid-column: 2/span 5;
 }
 
 .hide {
@@ -158,9 +173,9 @@ input {
 }
 
 .card-disco {
-  width: 300px;
+  width: 250px;
   border: 2px solid #ccc;
-  background-color: #f4cc70;
+  background-color: #1995ad;
   border-radius: 5px;
   padding: 10px;
   margin: 10px;
@@ -168,7 +183,14 @@ input {
   cursor: pointer;
 }
 
-.card-disco-img {
+.card-disco h3 {
+  margin: 5px 0;
+  font-size: 25px;
+  color: #011a27;
+  font-family: "Alice", sans-serif;
+}
+
+.card-disco img {
   max-width: 100%;
   height: 200px;
   background-color: black;
@@ -176,26 +198,45 @@ input {
   object-fit: cover;
 }
 
-.card-disco h3 {
-  margin: 5px 0;
+.card-disco p {
+  font-size: 20px;
+  color: #e6df44;
+  font-family: "Jost", sans-serif;
+  margin: 5px;
 }
 
 .detalle-card {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .detalle-card img {
-  max-width: 300px;
+  max-width: 500px;
   height: auto;
   border-radius: 5px;
 }
 
 .detalle-card h2 {
   margin: 10px 0;
+  color: #063852;
 }
 
 .detalle-card p {
   margin: 5px 0;
+}
+
+.ver-detalles-btn {
+  background-color: #063852;
+  color: white;
+  width: 120px;
+  height: 40px;
+  border: none;
+  margin-bottom: 10px;
+  font-size: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: "Alice", sans-serif;
 }
 
 /*# sourceMappingURL=style.css.map */

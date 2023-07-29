@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Alice&family=Jost&family=Lora&family=Roboto&display=swap');
+
 .cards {
     display: flex;
     flex-wrap: wrap;
@@ -5,42 +7,69 @@
 }
 
 .card-disco {
-    width: 300px;
+    width: 250px;
     border:2px solid #ccc;
-    background-color: $color3;
+    background-color: $color5;
     border-radius: 5px;
     padding: 10px;
     margin: 10px;
     text-align: center;
     cursor: pointer;
+   
 }
 
-.card-disco-img {
+.card-disco h3 {
+    margin: 5px 0;
+    font-size: 25px;
+    color: $color1 ;
+    font-family: 'Alice', sans-serif;
+}
+
+.card-disco img {
     max-width: 100%;
     height: 200px;
     background-color: black;
     border-radius: 5px;
     object-fit: cover;
 }
-
-.card-disco h3 {
-    margin: 5px 0;
+.card-disco p {
+    font-size: 20px;
+    color:$color4;
+    font-family: 'Jost', sans-serif;
+    margin: 5px;
 }
 
 .detalle-card {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .detalle-card img {
-    max-width: 300px;
+    max-width: 500px;
     height: auto;
     border-radius: 5px;
 }
 
+
 .detalle-card h2 {
     margin: 10px 0;
+    color: $color2;
 }
 
 .detalle-card p {
     margin: 5px 0;
+}
+
+.ver-detalles-btn {
+    background-color: $color2;
+    color: white;
+    width: 120px;
+    height: 40px;
+    border: none;
+    margin-bottom: 10px ;
+    font-size: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Alice', sans-serif;
 }
