@@ -33,6 +33,11 @@ ul {
         width: 200px;
         border-color: $color1;
         border-radius: 10px;
+        &:hover {
+               
+            transition: background-color 2s; 
+            background-color: $color3;   
+            }
 
         a {
             text-decoration: none;
@@ -43,9 +48,18 @@ ul {
             align-items: center;
             padding-top: 10px;
             font-family: 'Lora', sans-serif;
+            cursor: pointer;
+            &:hover {
+               
+                transition: color 2s, font-size 2s;   
+                color: $color1;
+                font-size: 25px;
+                
+                }
+            }
         }
     }
-}
+
 
 main {
     grid-column: 2 /span 5;

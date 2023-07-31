@@ -1,3 +1,13 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const nombreUsuario = localStorage.getItem ('nombreUsuario');
+
+  if (nombreUsuario) {
+    const saludoUsuario = getElementById('saludoUsuario');
+    saludoUsuario.textContent = `Bienvenido, ${nombreUsuario}!`;
+  }
+});
+
+
 const discos = [
     {
         titulo: 'Forest Hills Drive', 

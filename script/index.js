@@ -41,6 +41,12 @@ document.getElementById('formularioRegistro').addEventListener ('submit', (e) =>
         return;
     }
 
+    const usuariosRegistrados = JSON.parse(localStorage.getItem('usuarios')) || [];
+    const emailExistente = usuariosRegistrados.find (usuario => usuario.email === nuevoEmail);
+    if (emailExistente) {
+        alert ('El correo electrónico ya está en uso')
+    }
+
     const nuevoUsuarioObj = new Usuario (nuevoUsuario, nuevoEmail, nuevaContrasena);
 
     let usuarios = JSON.parse (localStorage.getItem('usuarios')) || [];
@@ -49,5 +55,22 @@ document.getElementById('formularioRegistro').addEventListener ('submit', (e) =>
     
     localStorage.setItem ('usuarios', JSON.stringify(usuarios));
 
-    window.location.href = '../pages/miLista.html';
+    window.location.href = '../pages/biblioteca.html';
 });
+
+document.getElementById ('formularioIngreso').addEventListener ('submit', (e) => {
+    e.preventDefault();
+
+    const nombreUsuario = document.getElementById('nombreUsuario').value;
+    const contrasena = document.getElementById('contrasena').value;
+
+    const usuariosRegistrados = JSON.parse (localStorage.getItem('usuarios')) || [];
+    const usuarioValido = usuariosRegistrados.find (usuario => usuario.nombreUsuario === nombreUsuario && usuario.contrasena ===contrasena)
+    
+    if (usuarioValido) {
+
+        window.location.href = '../pages/biblioteca.html';
+    } else {
+        alert ('Datos incorrectos')
+    }
+})
