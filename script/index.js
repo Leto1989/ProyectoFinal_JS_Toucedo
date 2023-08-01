@@ -46,7 +46,8 @@ document.getElementById('formularioRegistro').addEventListener ('submit', (e) =>
     if (emailExistente) {
         alert ('El correo electrónico ya está en uso')
     }
-
+    
+    console.log ('Nuevo Usuario:', nuevoUsuario)
     const nuevoUsuarioObj = new Usuario (nuevoUsuario, nuevoEmail, nuevaContrasena);
 
     let usuarios = JSON.parse (localStorage.getItem('usuarios')) || [];
@@ -55,7 +56,10 @@ document.getElementById('formularioRegistro').addEventListener ('submit', (e) =>
     
     localStorage.setItem ('usuarios', JSON.stringify(usuarios));
 
-    window.location.href = '../pages/biblioteca.html';
+    setTimeout(() => {
+        localStorage.setItem('nombreUsuario', nuevoUsuario);
+        window.location.href = '../pages/biblioteca.html';
+      }, 100);
 });
 
 document.getElementById ('formularioIngreso').addEventListener ('submit', (e) => {
@@ -65,6 +69,7 @@ document.getElementById ('formularioIngreso').addEventListener ('submit', (e) =>
     const contrasena = document.getElementById('contrasena').value;
 
     const usuariosRegistrados = JSON.parse (localStorage.getItem('usuarios')) || [];
+    console.log(usuariosRegistrados)
     const usuarioValido = usuariosRegistrados.find (usuario => usuario.nombreUsuario === nombreUsuario && usuario.contrasena ===contrasena)
     
     if (usuarioValido) {
@@ -73,4 +78,4 @@ document.getElementById ('formularioIngreso').addEventListener ('submit', (e) =>
     } else {
         alert ('Datos incorrectos')
     }
-})
+});

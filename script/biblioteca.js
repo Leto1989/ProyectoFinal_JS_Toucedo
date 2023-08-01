@@ -1,13 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const nombreUsuario = localStorage.getItem ('nombreUsuario');
-
-  if (nombreUsuario) {
-    const saludoUsuario = getElementById('saludoUsuario');
-    saludoUsuario.textContent = `Bienvenido, ${nombreUsuario}!`;
-  }
-});
-
-
 const discos = [
     {
         titulo: 'Forest Hills Drive', 
@@ -138,6 +128,7 @@ function crearCardDisco(disco) {
 }
 
 function mostrarDetallesDisco(disco) {
+  console.log ('mostrar detalles:', disco)
   if (disco) {
     const detalleHTML = `
       <div class="detalle-card">

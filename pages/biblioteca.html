@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="../script/biblioteca.js" defer></script>
+    <script defer src="../script/biblioteca.js"></script>
     <title> Mi lista </title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
@@ -19,8 +19,45 @@
         </nav>
     </header>
     <main>
-        <h1 id="saludoUsuario"></h1>
-        
+        <div>
+            <button class="btn-agregar-disco" id="agregarDisco"> Agregar disco </button>
+
+            <div class="container">
+                <form id="datosDisco" enctype="multipart/form-data">
+
+                    <div class="columna">
+                        <label for="titulo"> Título del disco: </label>
+                        <input type="text" name="titulo" id="tituloDisco" required><br>
+
+                        <label for="artista"> Nombre del artista/intérprete: </label>
+                        <input type="text" name="artista" id="artistaDisco" required><br>
+
+                        <label for="genero"> Género: </label>
+                        <select name="genero" id="generoDisco" required>
+                            <option value="rock"> Rock </option>
+                            <option value="jazz"> Jazz </option>
+                            <option value="hip-hop"> Hip-hop</option>
+                            <option value="salsa"> Salsa</option>
+                            <option value="bossa-nova"> Bossa-nova</option>
+                            <option value="tango"> Tango</option>
+                            <option value="pop"> Pop </option>
+                        </select><br>
+                    </div>
+                    <div class="columna">
+                        <label for="portada"> Imágen de portada</label>
+                        <input type="file" name="portada" id="portadaDisco" accept="image/*" required><br>
+
+                        <label for="enlace"> Agregar link </label>
+                        <input type="url" name="enlace" id="enlaceDisco" required>
+
+                        <label for="comentario"> Comentarios:</label>
+                        <textarea name="comentario" id="comentarioDisco" cols="30" rows="10"></textarea>
+                    </div>
+                    <button type="submit" value="enviar"> Agregar a la lista </button>
+                </form>
+            </div>
+        </div>
+
         <div class="biblioteca">
             <div class="cards" id="contenedorDiscos">
 
