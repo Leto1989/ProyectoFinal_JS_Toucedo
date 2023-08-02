@@ -29,10 +29,13 @@
                 <h1> Datos del disco </h1>
                 <div class="columna">
                     <label for="titulo"> Título del disco: </label>
-                    <input type="text" name="titulo" id="tituloDisco" required><br>
+                    <input type="text" name="titulo" id="tituloDisco"  autocomplete="off"><br>
 
                     <label for="artista"> Nombre del artista/intérprete: </label>
-                    <input type="text" name="artista" id="artistaDisco" required><br>
+                    <input type="text" name="artista" id="artistaDisco" autocomplete="off" required><br>
+
+                    <label for="lanzamiento"> Año de lanzamiento: </label>
+                    <input type="text" name="lanzamiento" id="lanzamientoDisco" autocomplete="off" required><br>
 
                     <label for="genero"> Género: </label>
                     <select name="genero" id="generoDisco" required>
@@ -50,10 +53,10 @@
                     <input type="file" name="portada" id="portadaDisco" accept="image/*" required><br>
 
                     <label for="enlace"> Agregar link </label>
-                    <input type="url" name="enlace" id="enlaceDisco" required>
+                    <input type="url" name="enlace" id="enlaceDisco"  autocomplete="off" required>
 
                     <label for="comentario"> Comentarios:</label>
-                    <textarea name="comentario" id="comentarioDisco" cols="30" rows="10"></textarea>
+                    <textarea name="comentario" id="comentarioDisco" autocomplete="off" cols="30" rows="10"></textarea>
                     
                     <button type="submit" value="enviar" id="agregarDiscoForm"> Agregar a la lista </button>
                 </div>

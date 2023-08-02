@@ -72,12 +72,14 @@
 .form-discos {
     width: 800px;
     display: grid;
+    display: grid;
     grid-template-columns: 1fr 1fr;
     border: 2px solid;
     border-radius: 10px;
     background-color: $color1;
     h1{
         height: 50px;
+        color: $color4;
     }
     label {
         margin: 15px;
@@ -101,6 +103,8 @@
         background-color: $color5;
         font-size: 15px;
         font-family: 'Roboto';
+        border: 2px solid;
+        border-radius: 10px;
     }
 }
 .columna {

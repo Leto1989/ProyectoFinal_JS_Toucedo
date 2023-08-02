@@ -147,6 +147,7 @@ main {
 .form-discos {
   width: 800px;
   display: grid;
+  display: grid;
   grid-template-columns: 1fr 1fr;
   border: 2px solid;
   border-radius: 10px;
@@ -154,6 +155,7 @@ main {
 }
 .form-discos h1 {
   height: 50px;
+  color: #e6df44;
 }
 .form-discos label {
   margin: 15px;
@@ -177,6 +179,8 @@ main {
   background-color: #1995ad;
   font-size: 15px;
   font-family: "Roboto";
+  border: 2px solid;
+  border-radius: 10px;
 }
 
 .columna {

@@ -1,27 +1,28 @@
-const agregarDiscoBtn = document.getElementById ('agregarDisco');
-const formularioDiscos = document.getElementById ('datosDisco');
+const agregarDiscoBtn = document.getElementById('agregarDisco');
+const formularioDiscos = document.getElementById('datosDisco');
 const biblioteca = document.querySelector('.biblioteca');
-const agregarDiscoForm = document.getElementById ('agregarDiscoForm');
+const agregarDiscoForm = document.getElementById('agregarDiscoForm');
 
 let mostrarFormulario = false;
 
-function toggleFormYCards (){
-  if (mostrarFormulario){
+function toggleFormYCards() {
+  if (mostrarFormulario) {
     biblioteca.style.display = 'flex';
-    formularioDiscos.style.display = 'none'
-    agregarDiscoBtn.textContent = 'Agregar disco'
+    formularioDiscos.style.display = 'none';
+    agregarDiscoBtn.textContent = 'Agregar disco';
+    formularioDiscos.reset();
   } else {
     biblioteca.style.display = 'none';
-    formularioDiscos.style.display = 'flex'
+    formularioDiscos.style.display = 'flex';
     agregarDiscoBtn.textContent = 'Atrás';
   }
 
   mostrarFormulario = !mostrarFormulario;
 }
-agregarDiscoBtn.addEventListener ('click', toggleFormYCards);
+agregarDiscoBtn.addEventListener('click', toggleFormYCards);
 
 formularioDiscos.addEventListener('submit', (e) => {
-  e.preventDefault ();
+  e.preventDefault();
 });
 
 
@@ -141,6 +142,75 @@ const discos = [
 const contenedorDiscos = document.getElementById("contenedorDiscos");
 const detalleDisco = document.getElementById("detalleDisco");
 
+function agregarDisco(e) {
+  e.preventDefault();
+
+  const titulo = document.getElementById('tituloDisco').value;
+  const artista = document.getElementById('artistaDisco').value;
+  const genero = document.getElementById('generoDisco').value;
+  const lanzamiento = document.getElementById('lanzamientoDisco').value;
+  const portadaInput = document.getElementById('portadaDisco');
+  const portada = portadaInput.files[0];
+  const enlace = document.getElementById('enlaceDisco').value;
+  const comentario = document.getElementById('comentarioDisco').value;
+
+  if (titulo.trim() === '' || artista.trim() === '' || genero === '' || lanzamiento.trim() === '' || !portada || enlace.trim() === '') {
+    alert('Complete todos los campos para agregar el disco');
+    return;
+  }
+  const nuevoDisco = {
+    titulo: titulo,
+    artista: artista,
+    genero: genero,
+    lanzamiento: lanzamiento,
+    imagen: URL.createObjectURL(portada),
+    enlace: enlace,
+    comentario: comentario,
+  };
+
+  discos.push(nuevoDisco);
+  guardarDiscosLocalStorage(discos);
+
+  mostrarDiscosEnCards();
+  formularioDiscos.reset();
+
+  toggleFormYCards();
+}
+formularioDiscos.addEventListener('submit', agregarDisco);
+
+function guardarDiscosLocalStorage(discos) {
+  localStorage.setItem('discos', JSON.stringify(discos));
+}
+
+function obtenerDiscosLocalStorage() {
+  const discosGuardados = localStorage.getItem('discos');
+  return discosGuardados ? JSON.parse(discosGuardados) : [];
+}
+
+function mostrarDiscosEnCards() {
+  discos = obtenerDiscosLocalStorage();
+  let contenidoHTML = "";
+  for (const disco of discos) {
+    contenidoHTML += crearCardDisco(disco);
+  }
+  contenedorDiscos.innerHTML = contenidoHTML;
+
+  const cardsDiscos = document.querySelectorAll(".card-disco");
+  cardsDiscos.forEach((card, index) => {
+    const verDetallesBtn = card.querySelector(".ver-detalles-btn");
+
+    verDetallesBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const disco = discos[index];
+      mostrarDetallesDisco(disco);
+
+      const btnVolver = document.getElementById('btnVolver');
+      btnVolver.addEventListener('click', () => {
+        mostrarDetallesDisco(null);
+      });
+    });
+  });
+}
 
 function crearCardDisco(disco) {
   return `
@@ -156,7 +226,7 @@ function crearCardDisco(disco) {
 }
 
 function mostrarDetallesDisco(disco) {
-  console.log ('mostrar detalles:', disco)
+  console.log('mostrar detalles:', disco);
   if (disco) {
     const detalleHTML = `
       <div class="detalle-card">
@@ -176,30 +246,6 @@ function mostrarDetallesDisco(disco) {
     detalleDisco.innerHTML = '';
     contenedorDiscos.style.display = "flex";
   }
-}
-
-function mostrarDiscosEnCards() {
-  let contenidoHTML = "";
-  for (const disco of discos) {
-    contenidoHTML += crearCardDisco(disco);
-  }
-  contenedorDiscos.innerHTML = contenidoHTML;
-
-  const cardsDiscos = document.querySelectorAll(".card-disco");
-  cardsDiscos.forEach((card, index) => {
-    const verDetallesBtn = card.querySelector(".ver-detalles-btn");
-
-    verDetallesBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const disco = discos[index];
-      mostrarDetallesDisco(disco);
-
-      const btnVolver = document.getElementById ('btnVolver');
-      btnVolver.addEventListener ('click', () => {
-        mostrarDetallesDisco (null);
-      })
-    });
-  });
 }
 
 mostrarDiscosEnCards();
