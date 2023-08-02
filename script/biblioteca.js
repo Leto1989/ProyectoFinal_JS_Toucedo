@@ -1,3 +1,31 @@
+const agregarDiscoBtn = document.getElementById ('agregarDisco');
+const formularioDiscos = document.getElementById ('datosDisco');
+const biblioteca = document.querySelector('.biblioteca');
+const agregarDiscoForm = document.getElementById ('agregarDiscoForm');
+
+let mostrarFormulario = false;
+
+function toggleFormYCards (){
+  if (mostrarFormulario){
+    biblioteca.style.display = 'flex';
+    formularioDiscos.style.display = 'none'
+    agregarDiscoBtn.textContent = 'Agregar disco'
+  } else {
+    biblioteca.style.display = 'none';
+    formularioDiscos.style.display = 'flex'
+    agregarDiscoBtn.textContent = 'Atrás';
+  }
+
+  mostrarFormulario = !mostrarFormulario;
+}
+agregarDiscoBtn.addEventListener ('click', toggleFormYCards);
+
+formularioDiscos.addEventListener('submit', (e) => {
+  e.preventDefault ();
+});
+
+
+
 const discos = [
     {
         titulo: 'Forest Hills Drive', 

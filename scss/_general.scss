@@ -69,3 +69,8 @@ main {
 .hide {
     display: none;
 }
+.item-derecha {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}

@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost&family=Lora&family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Jost&family=Reem+Kufi:wght@500&family=Roboto&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Jost&family=Reem+Kufi:wght@500&family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Alice&family=Jost&family=Lora&family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Alice&family=Jost&family=Lora&family=Roboto&display=swap");
 body {
@@ -67,86 +66,16 @@ main {
   display: none;
 }
 
-.centrado {
+.item-derecha {
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-
-form {
-  width: 400px;
-  border: 2px solid;
-  border-radius: 10px;
-  border-color: white;
-  background-color: #011a27;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-label {
-  margin: 15px;
-  font-size: 25px;
-  font-weight: bold;
-  font-family: "Jost", sans-serif;
-  color: #f4cc70;
-}
-
-input {
-  height: 40px;
-  padding: 5px 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.pForm {
-  color: #e6df44;
-  font-size: 20px;
-  font-family: "Reem Kufi";
-}
-
-.btnIngresar {
-  background-color: #3498db;
-  color: #063852;
-  font-size: 20px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-.btnIngresar:hover {
-  background-color: #2980b9;
+  align-items: end;
 }
 
 .centrado {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-form {
-  width: 400px;
-  border: 2px solid;
-  border-radius: 10px;
-  border-color: white;
-  background-color: #011a27;
-}
-
-label {
-  margin: 15px;
-  font-size: 25px;
-  font-weight: bold;
-  font-family: "Jost", sans-serif;
-  color: #f4cc70;
-}
-
-input {
-  height: 40px;
-  width: 120px;
-  padding: 5px 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
 }
 
 .pForm {
@@ -171,10 +100,95 @@ input {
 
 .form-ingreso {
   height: 350px;
+  width: 400px;
+  border: 2px solid;
+  border-radius: 10px;
+  border-color: white;
+  background-color: #011a27;
+}
+.form-ingreso label {
+  margin: 15px;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: "Jost", sans-serif;
+  color: #f4cc70;
+}
+.form-ingreso input {
+  height: 40px;
+  width: 120px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .form-registro {
   height: 500px;
+  width: 400px;
+  border: 2px solid;
+  border-radius: 10px;
+  border-color: white;
+  background-color: #011a27;
+}
+.form-registro label {
+  margin: 15px;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: "Jost", sans-serif;
+  color: #f4cc70;
+}
+.form-registro input {
+  height: 40px;
+  width: 120px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-discos {
+  width: 800px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 2px solid;
+  border-radius: 10px;
+  background-color: #011a27;
+}
+.form-discos h1 {
+  height: 50px;
+}
+.form-discos label {
+  margin: 15px;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Jost", sans-serif;
+  color: #f4cc70;
+}
+.form-discos input {
+  height: 20px;
+  width: 200px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 15px;
+}
+.form-discos button {
+  width: 150px;
+  height: 40px;
+  background-color: #1995ad;
+  font-size: 15px;
+  font-family: "Roboto";
+}
+
+.columna {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.columna select {
+  width: 60%;
+  background-color: #e6df44;
+  font-size: 20px;
+  font-family: "Reem Kufi", sans-serif;
 }
 
 .cards {
@@ -266,7 +280,7 @@ input {
   cursor: pointer;
 }
 
-.btn-volver {
+.btn-volver, .btn-agregar-disco {
   background-color: #f4cc70;
   color: black;
   width: 120px;
