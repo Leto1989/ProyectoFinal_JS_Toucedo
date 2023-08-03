@@ -182,7 +182,7 @@ function mostrarDetallesDisco(disco) {
   if (disco) {
     const detalleHTML = `
       <div class="detalle-card">
-        <img src="data:image/png:base.64,${disco.imagen}" alt="${disco.titulo}">
+        <img src="${disco.imagen}" alt="${disco.titulo}">
         <h2>${disco.titulo}</h2>
         <p>Artista: ${disco.artista}</p>
         <p>Año: ${disco.lanzamiento}</p>
