@@ -182,19 +182,26 @@ function mostrarDetallesDisco(disco) {
   if (disco) {
     const detalleHTML = `
       <div class="detalle-card">
-        <img src="${disco.imagen}" alt="${disco.titulo}">
+        <img src="data:image/png:base.64,${disco.imagen}" alt="${disco.titulo}">
         <h2>${disco.titulo}</h2>
         <p>Artista: ${disco.artista}</p>
         <p>Año: ${disco.lanzamiento}</p>
         <p>Género: ${disco.genero}</p>
         <p>Sobre el disco: ${disco.comentario}</p>
         <a href="${disco.enlace}" target="_blank" rel="noopener noreferrer">Escuchar disco</a>
-        <button class="btn-volver" id="btnVolver"> Volver a la lista </button>
+        <button class="btn-volver" id="btnVolver"> Volver </button>
         <button class="btn-agregar-a-lista" id="btnAgregarALista"> Agregar a Mi Lista </button>
       </div>
     `;
     detalleDisco.innerHTML = detalleHTML;
     contenedorDiscos.style.display = "none";
+
+    const btnAgregarALista = document.getElementById('btnAgregarALista');
+    btnAgregarALista.addEventListener('click', () => {
+      const nombreUsuario = obtenerNombreUsuario();
+      agregarDiscoALista(nombreUsuario,disco);
+      alert('El disco se ha agregado a tu lista');
+    });
   } else {
     detalleDisco.innerHTML = '';
     contenedorDiscos.style.display = "flex";
@@ -216,25 +223,46 @@ function agregarDisco() {
     return;
   }
 
-  const nuevoDisco = {
-    titulo: titulo,
-    artista: artista,
-    genero: genero,
-    lanzamiento: lanzamiento,
-    imagen: URL.createObjectURL(portada),
-    enlace: enlace,
-    comentario: comentario,
+  const reader = new FileReader();
+  reader.onload = function() {
+    const imagenBase64 = reader.result.split(',')[1]; // Obtener solo el contenido codificado en base64
+    const nuevoDisco = {
+      titulo: titulo,
+      artista: artista,
+      genero: genero,
+      lanzamiento: lanzamiento,
+      imagen: imagenBase64, // Guardar la imagen como cadena codificada en base64
+      enlace: enlace,
+      comentario: comentario,
+    };
+
+    discos.push(nuevoDisco);
+
+    localStorage.setItem('discos', JSON.stringify(discos));
+
+    mostrarDiscosEnCards();
+    formularioDiscos.reset();
+    toggleFormYCards();
   };
-
-  discos.push(nuevoDisco); 
-
-  localStorage.setItem('discos', JSON.stringify(discos));
-
-  mostrarDiscosEnCards();
-  formularioDiscos.reset();
-  
-  
-  toggleFormYCards();
+  reader.readAsDataURL(portada); // Leer la imagen como una URL en base64
 }
 
+function obtenerNombreUsuario() {
+  
+  const nombreUsuario = localStorage.getItem("nombreUsuario");
+  return nombreUsuario;
+}
+
+function agregarDiscoALista(nombreUsuario, disco) {
+  const usuariosRegistrados = JSON.parse(localStorage.getItem('usuarios')) || [];
+  const usuario = usuariosRegistrados.find((usuario) => usuario.nombreUsuario === nombreUsuario);
+
+  if (usuario) {
+    if (!usuario.listaDiscosUsuario) {
+      usuario.listaDiscosUsuario = [];
+    }
+    usuario.listaDiscosUsuario.push(disco);
+    localStorage.setItem('usuarios', JSON.stringify(usuariosRegistrados));
+  }
+}
 mostrarDiscosEnCards();
